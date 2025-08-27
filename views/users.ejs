@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+</head>
+<body>
+    <h2>The details of all the users</h2>
+    <a href="/users/add">Add New User</a>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>USERNAME</th>
+                <th>EMAIL</th>
+                <th>EDIT</th>
+                <TH>DELETE</TH>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <%for(let user of data){%>
+                <tr>
+                    <td><%=user.id%></td>
+                    <td><%=user.username%></td>
+                    <td><%=user.email%></td>
+                    <td>
+                        <form method="get" action="/users/<%=user.id%>/edit">
+                            <button>Edit Button</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="get" action="/users/<%=user.id%>/delete">
+                            <button >Delete Button</button>
+                        </form>
+                    </td>
+                    
+                </tr>
+        
+            <%}%>
+        </tbody>
+    </table>
+    
+</body>
+</html>
